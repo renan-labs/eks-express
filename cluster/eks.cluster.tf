@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "this" {
-  name     = var.eks_cluster.name
-  version  = var.eks_cluster.version
-  role_arn = aws_iam_role.eks_cluster.arn
+  name                      = var.eks_cluster.name
+  version                   = var.eks_cluster.version
+  role_arn                  = aws_iam_role.eks_cluster.arn
   enabled_cluster_log_types = var.eks_cluster.enabled_cluster_log_types
 
   access_config {
