@@ -50,7 +50,7 @@ variable "eks_cluster" {
   })
 
   default = {
-    name                      = "eks_express-cluster"
+    name                      = "eks-express-cluster"
     role_name                 = "eks-express-cluster-role"
     version                   = "1.32"
     enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
