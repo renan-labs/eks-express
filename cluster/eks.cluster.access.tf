@@ -1,7 +1,7 @@
 resource "aws_eks_access_entry" "iamadmin" {
-  cluster_name      = aws_eks_cluster.this.name
-  principal_arn     = local.eks_access_user_arn
-  type              = "STANDARD"
+  cluster_name  = aws_eks_cluster.this.name
+  principal_arn = local.eks_access_user_arn
+  type          = "STANDARD"
 }
 
 resource "aws_eks_access_policy_association" "iamadmin" {
@@ -10,6 +10,6 @@ resource "aws_eks_access_policy_association" "iamadmin" {
   principal_arn = local.eks_access_user_arn
 
   access_scope {
-    type       = "cluster"
+    type = "cluster"
   }
 }
