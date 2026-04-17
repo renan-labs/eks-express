@@ -38,15 +38,16 @@ metadata:
     alb.ingress.kubernetes.io/load-balancer-name: eks-express-ingress
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
-    external-dns.alpha.kubernetes.io/hostname: eks.devopsnanuvem.com
-    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:us-east-1:654654554686:regional/webacl/waf-eks-express-webacl/44e2e174-c0c7-4ec1-ac4e-13eacecc6c3a
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:760023434898:certificate/fcd881c0-8a30-46e7-98b4-4895c0b1329d
+    external-dns.alpha.kubernetes.io/hostname: eks.cloudrenandias.com.br
 spec:
   ingressClassName: alb
   tls:
   - hosts:
-    - eks.devopsnanuvem.com
+    - eks.cloudrenandias.com.br
   rules:
-  - http:
+  - host: eks.cloudrenandias.com.br   # ← única mudança
+    http:
       paths:
       - path: /
         pathType: Prefix

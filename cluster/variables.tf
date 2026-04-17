@@ -60,7 +60,7 @@ variable "eks_cluster" {
     node_group = {
       name           = "eks-express-node-group"
       role_name      = "eks-express-node-group-role"
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.medium"]
       capacity_type  = "ON_DEMAND"
       ami_type       = "AL2023_x86_64_STANDARD"
       scaling_config = {
@@ -70,4 +70,9 @@ variable "eks_cluster" {
       }
     }
   }
+}
+
+variable "custom_domain" {
+  type = string
+  default = "cloudrenandias.com.br"
 }
