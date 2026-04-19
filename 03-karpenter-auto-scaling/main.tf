@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "eks-express-terraform-state-files"
+    bucket         = "eks-express-terraform-state-files-10"
     key            = "karpenter-auto-scaling/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "eks-express-terraform-state-locking"
@@ -27,11 +27,11 @@ provider "aws" {
 
 provider "helm" {
   kubernetes {
-    host                   = aws_eks_cluster.this.endpoint
-    cluster_ca_certificate = base64decode(aws_eks_cluster.this.certificate_authority[0].data)
+    host                   = local.eks_cluster_endpoint
+    cluster_ca_certificate = base64decode(local.eks_cluster_certificate_authority_data)
     exec {
       api_version = "client.authentication.k8s.io/v1beta1"
-      args        = ["eks", "get-token", "--cluster-name", aws_eks_cluster.this.id]
+      args        = ["eks", "get-token", "--cluster-name", local.eks_cluster_name]
       command     = "aws"
     }
   }

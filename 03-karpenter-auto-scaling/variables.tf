@@ -28,11 +28,11 @@ variable "tags" {
 
 variable "karpenter" {
   type = object({
-    controller_role_name =  string
+    controller_role_name   = string
     controller_policy_name = string
   })
   default = {
-    controller_role_name = "KarpenterControllerRole"
+    controller_role_name   = "KarpenterControllerRole"
     controller_policy_name = "KarpenterControllerPolicy"
   }
 }
